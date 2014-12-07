@@ -1,0 +1,48 @@
+﻿@model ImageUpload.Models.Image
+
+@{
+    ViewBag.Title = "Image Details";
+}
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Image Information</h3>
+    </div>
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ImageTitle)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ImageTitle)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.OriginalFileName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OriginalFileName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ImagePath)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ImagePath)
+            </dd>
+
+            <dt>
+                Image
+            </dt>
+
+            <dd>
+                @Html.ImageFor(mode => Url.Content(Model.ImagePath), new { align = "center" })
+            </dd>
+
+        </dl>
+    </div>
+    <div class="panel-footer">
+        @Html.ActionLink("Back to List", "Index") |
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID })
+    </div>
+</div>

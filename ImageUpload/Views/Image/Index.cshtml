@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ImageUpload.Models.Image>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageTitle)
+        </th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.ImageFor(model => Url.Content(item.ImagePath), new { alt = "alt text", height = "32", width = "32" })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageTitle)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            </td>
+        </tr>
+}
+
+</table>
